@@ -3,14 +3,19 @@ import TodosContainer from "./components/Layout/TodosContainer";
 import TodoList from "./components/TodoList/TodoList";
 import TodosHeader from "./components/TodosHeader/TodosHeader";
 
+// Provider
+import TodoProvider from "./store/TodoProvider";
+
 const App = () => {
   return (
-    <AppContainer>
-      <TodosContainer>
-        <TodosHeader />
-        <TodoList />
-      </TodosContainer>
-    </AppContainer>
+    <TodoProvider>
+      <AppContainer>
+        <TodosContainer>
+          <TodosHeader />
+          <TodoList />
+        </TodosContainer>
+      </AppContainer>
+    </TodoProvider>
   );
 };
 
