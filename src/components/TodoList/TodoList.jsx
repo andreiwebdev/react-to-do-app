@@ -8,7 +8,7 @@ const TodoList = () => {
   const todosItems = (
     <ul>
       {todoCtx.todos.map((todo) => (
-        <TodoItem key={todo.id} todo={todo.text} />
+        <TodoItem key={todo.id} id={todo.id} todo={todo.text} />
       ))}
     </ul>
   );

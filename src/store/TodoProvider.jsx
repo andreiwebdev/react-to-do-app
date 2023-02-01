@@ -14,6 +14,13 @@ const todoReducer = (state, action) => {
   }
 
   if (action.type === "REMOVE") {
+    let updatedTodos;
+
+    updatedTodos = state.todos.filter((todo) => todo.id != action.id);
+
+    return {
+      todos: updatedTodos,
+    };
   }
 
   return defaultTodoState;
