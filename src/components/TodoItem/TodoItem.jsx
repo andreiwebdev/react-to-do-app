@@ -1,12 +1,12 @@
-import React, { useContext } from "react";
-import TodoContext from "../../store/todo-context";
+import React from "react";
 import Button from "../Button/Button";
+import useTodo from "../../hooks/useTodo";
 
 const TodoItem = (props) => {
-  const todoCtx = useContext(TodoContext);
+  const { removeTodo } = useTodo();
 
   const removeTodoHandler = (id) => {
-    todoCtx.removeTodo(id);
+    removeTodo(id);
   };
 
   return (

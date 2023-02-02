@@ -1,16 +1,12 @@
-import React, { useContext, useState } from "react";
-import TodoContext from "../../store/todo-context";
+import React, { useState } from "react";
+import useTodo from "../../hooks/useTodo";
 import Button from "../Button/Button";
 
 const TodosHeader = () => {
   const [todo, setTodo] = useState("");
-  const todoCtx = useContext(TodoContext);
 
   const addTodoHandler = (todoText) => {
-    todoCtx.addTodo({
-      id: Math.random() * 10,
-      text: todoText,
-    });
+    addTodo({ id: Math.random() * 10, text: todoText });
   };
 
   const submitHandler = (event) => {
@@ -18,6 +14,8 @@ const TodosHeader = () => {
     addTodoHandler(todo);
     setTodo("");
   };
+
+  const { addTodo } = useTodo();
 
   return (
     <div className="text-4xl mb-14">

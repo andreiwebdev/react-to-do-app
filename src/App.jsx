@@ -4,7 +4,7 @@ import TodoList from "./components/TodoList/TodoList";
 import TodosHeader from "./components/TodosHeader/TodosHeader";
 
 // Provider
-import TodoProvider from "./store/TodoProvider";
+import { TodoProvider } from "./store/TodoContext";
 
 const App = () => {
   return (
