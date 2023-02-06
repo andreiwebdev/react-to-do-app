@@ -4,6 +4,7 @@ import Button from "../Button/Button";
 
 const TodosHeader = () => {
   const [todo, setTodo] = useState("");
+  const { addTodo } = useTodo();
 
   const addTodoHandler = (todoText) => {
     addTodo({ id: Math.random() * 10, text: todoText });
@@ -14,8 +15,6 @@ const TodosHeader = () => {
     addTodoHandler(todo);
     setTodo("");
   };
-
-  const { addTodo } = useTodo();
 
   return (
     <div className="text-4xl mb-14">

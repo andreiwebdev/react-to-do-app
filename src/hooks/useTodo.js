@@ -9,14 +9,12 @@ const useTodo = () => {
   }
 
   function removeTodo(id) {
-    let updatedTodos = state.todos.filter((todo) => {
-      todo.id !== id;
-    });
+    let updatedTodos = state.todos.filter(todo => todo.id !== id);
     setState((state) => ({ todos: updatedTodos }));
   }
 
   return {
-    todos: state.todos.length > 0 ? state.todos : [],
+    todos: state.todos,
     addTodo,
     removeTodo,
   };
