@@ -4,6 +4,7 @@ import Button from "../Button/Button";
 
 const TodosHeader = () => {
   const [todo, setTodo] = useState("");
+  const [error, setError] = useState("");
   const { addTodo } = useTodo();
 
   const addTodoHandler = (todoText) => {
@@ -12,6 +13,10 @@ const TodosHeader = () => {
 
   const submitHandler = (event) => {
     event.preventDefault();
+    if (todo.length === 0) {
+      setError("Please submit your todo.");
+      return;
+    }
     addTodoHandler(todo);
     setTodo("");
   };
@@ -23,7 +28,11 @@ const TodosHeader = () => {
         className="flex items-center justify-center"
       >
         <input
-          className="bg-slate-50 mr-4 text-sm w-[100%] p-2"
+          className={
+            error
+              ? "bg-slate-50 mr-4 text-sm w-[100%] focus:outline-none p-2 border-[1px] border-solid border-[red]"
+              : "bg-slate-50 mr-4 text-sm w-[100%] focus:outline-none p-2"
+          }
           type="text"
           onChange={(e) => setTodo(e.target.value)}
           value={todo}
@@ -31,6 +40,7 @@ const TodosHeader = () => {
         />
         <Button type="submit" icon="add" />
       </form>
+      <p className="text-sm text-[red] text-left">{error}</p>
     </div>
   );
 };
