@@ -18,15 +18,18 @@ const TodosHeader = () => {
 
   return (
     <div className="text-4xl mb-14">
-      <h1 className="mb-4">Add a todo</h1>
-      <form onSubmit={submitHandler}>
+      <form
+        onSubmit={submitHandler}
+        className="flex items-center justify-center"
+      >
         <input
-          className="bg-slate-50 mr-4"
+          className="bg-slate-50 mr-4 text-sm w-[100%] p-2"
           type="text"
           onChange={(e) => setTodo(e.target.value)}
           value={todo}
+          placeholder="Add a todo..."
         />
-        <Button type="submit" btnText="Add" />
+        <Button type="submit" icon="add" />
       </form>
     </div>
   );

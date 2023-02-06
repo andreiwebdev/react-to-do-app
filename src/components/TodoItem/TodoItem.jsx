@@ -10,13 +10,13 @@ const TodoItem = (props) => {
   };
 
   return (
-    <li>
+    <li className="flex justify-between items-center mb-4 text-sm">
       {props.todo}
       <Button
         onClick={removeTodoHandler.bind(null, props.id)}
-        btnClasses="bg-slate-900 text-white p-2 mb-4"
+        btnClasses="text-[red]"
         type="button"
-        btnText="Remove"
+        icon="remove"
       />
     </li>
   );
