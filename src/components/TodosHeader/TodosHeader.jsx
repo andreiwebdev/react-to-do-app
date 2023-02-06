@@ -5,7 +5,7 @@ import Button from "../Button/Button";
 const TodosHeader = () => {
   const [todo, setTodo] = useState("");
   const [error, setError] = useState("");
-  const { addTodo } = useTodo();
+  const { addTodo } = useTodo(null);
 
   const addTodoHandler = (todoText) => {
     addTodo({ id: Math.random() * 10, text: todoText });
@@ -19,6 +19,7 @@ const TodosHeader = () => {
     }
     addTodoHandler(todo);
     setTodo("");
+    setError(false);
   };
 
   return (

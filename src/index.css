@@ -18,3 +18,31 @@
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
 }
+
+
+/* ------- react-edit-text ------- */
+.todo-item div {
+  width: 100%;
+  text-align: left;
+}
+
+.todo-item .edit-todo-button {
+  width: 20px;
+  margin-right: 10px;
+  position: relative;
+  top: 1px;
+}
+
+._4GdcU:hover {
+  cursor: default;
+  background: transparent;
+}
+
+.edit-input {
+  margin-right: 10px;
+  background: #ffffff;
+}
+.edit-input:focus {
+  outline: none;
+}
+/* ------- END react-edit-text END ------- */

@@ -9,14 +9,20 @@ const useTodo = () => {
   }
 
   function removeTodo(id) {
-    let updatedTodos = state.todos.filter(todo => todo.id !== id);
+    let updatedTodos = state.todos.filter((todo) => todo.id !== id);
     setState((state) => ({ todos: updatedTodos }));
+  }
+
+  function updateTodo(updatedTodo, id) {
+    let index = state.todos.map((todo) => todo.id).indexOf(id);
+    state.todos[index].text = updatedTodo;
   }
 
   return {
     todos: state.todos,
     addTodo,
     removeTodo,
+    updateTodo,
   };
 };
 
