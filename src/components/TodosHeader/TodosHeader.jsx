@@ -8,7 +8,13 @@ const TodosHeader = () => {
   const { addTodo } = useTodo(null);
 
   const addTodoHandler = (todoText) => {
-    addTodo({ id: Math.random() * 10, text: todoText });
+    let timePosted = new Date().toLocaleTimeString("en-US", {
+      hour: "2-digit",
+      minute: "2-digit",
+      hour12: false,
+    });
+
+    addTodo({ id: Math.random() * 10, text: todoText, timePosted: timePosted });
   };
 
   const submitHandler = (event) => {

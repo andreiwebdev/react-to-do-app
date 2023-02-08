@@ -21,7 +21,12 @@ const TodoList = () => {
   const todosItems = (
     <ul className={todosScroll}>
       {todos.map((todo) => (
-        <TodoItem key={todo.id} id={todo.id} todo={todo.text} />
+        <TodoItem
+          key={todo.id}
+          id={todo.id}
+          todo={todo.text}
+          time={todo.timePosted}
+        />
       ))}
     </ul>
   );

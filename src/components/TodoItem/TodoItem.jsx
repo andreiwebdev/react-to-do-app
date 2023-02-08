@@ -18,7 +18,11 @@ const TodoItem = (props) => {
 
   return (
     <li className="flex justify-between items-center mb-4 text-sm todo-item">
+      <span className="bg-slate-800 rounded-lg text-white p-2 mr-3">
+        {props.time}
+      </span>
       <EditText
+        style={{ borderBottom: "1px solid #1E293B", marginRight: "0.75rem" }}
         inputClassName="edit-input"
         name="todo"
         defaultValue={props.todo}
