@@ -10,10 +10,25 @@ const App = () => {
   return (
     <TodoProvider>
       <AppContainer>
-        <TodosContainer>
+        <TodosHeader />
+        {/* tasks */}
+        <div className="flex flex-col lg:flex-row justify-center lg:justify-between w-full h-screen max-h-[85vh] p-5 lg:py-10 px-5">
+          <TodosContainer>
+            <h2>tasks</h2>
+          </TodosContainer>
+          {/* in progress */}
+          <TodosContainer>
+            <h2>in progress</h2>
+          </TodosContainer>
+          {/* completed */}
+          <TodosContainer>
+            <h2>completed</h2>
+          </TodosContainer>
+        </div>
+        {/* <TodosContainer>
           <TodosHeader />
           <TodoList />
-        </TodosContainer>
+        </TodosContainer> */}
       </AppContainer>
     </TodoProvider>
   );
