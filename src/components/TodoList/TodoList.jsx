@@ -9,7 +9,7 @@ const TodoList = () => {
   );
 
   useEffect(() => {
-    if (todos.length >= 2) {
+    if (todos.length >= 11) {
       setTodosScroll(
         "max-h-[fill] w-full h-full absolute overflow-y-scroll pr-[30px]"
       );
