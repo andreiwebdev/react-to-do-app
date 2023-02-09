@@ -6,8 +6,6 @@ const TodoContext = React.createContext([{}, () => {}]);
 const TodoProvider = (props) => {
   const [state, setState] = useState({
     todos: [],
-    inProgressTodos: [],
-    completedTodos: [],
   });
 
   return (

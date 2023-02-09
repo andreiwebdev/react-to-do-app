@@ -5,20 +5,8 @@ import useTodo from "../../hooks/useTodo";
 import { EditText } from "react-edit-text";
 import "react-edit-text/dist/index.css";
 
-import { useDrag } from "react-dnd";
-
 const TodoItem = (props) => {
   const { removeTodo, updateTodo } = useTodo();
-  const id = props.id;
-  const todo = props.todo;
-
-  const [{ isDragging }, dragRef] = useDrag({
-    type: "todo",
-    item: { id, todo },
-    collect: (monitor) => ({
-      isDragging: monitor.isDragging(),
-    }),
-  });
 
   const removeTodoHandler = (id) => {
     removeTodo(id);
@@ -29,10 +17,7 @@ const TodoItem = (props) => {
   };
 
   return (
-    <li
-      ref={dragRef}
-      className="flex justify-between items-center mb-4 text-sm todo-item"
-    >
+    <li className="flex justify-between items-center mb-4 text-sm todo-item">
       <span className="bg-slate-800 rounded-lg text-white p-2 mr-3">
         {props.time}
       </span>
