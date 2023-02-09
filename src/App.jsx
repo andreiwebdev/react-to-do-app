@@ -2,6 +2,7 @@ import { DndProvider } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
 import AppContainer from "./components/Layout/AppContainer";
 import TodosContainer from "./components/Layout/TodosContainer";
+import TodoInProgressList from "./components/TodoInProgressList/TodoInProgressList";
 import TodoList from "./components/TodoList/TodoList";
 import TodosHeader from "./components/TodosHeader/TodosHeader";
 
@@ -21,7 +22,7 @@ const App = () => {
             </TodosContainer>
             <TodosContainer>
               <h2>in progress</h2>
-              {/* <TodoList /> */}
+              <TodoInProgressList />
             </TodosContainer>
             <TodosContainer>
               <h2>completed</h2>
