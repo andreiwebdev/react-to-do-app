@@ -15,20 +15,19 @@ const App = () => {
         <div className="flex flex-col lg:flex-row justify-center lg:justify-between w-full h-screen max-h-[85vh] p-5 lg:py-10 px-5">
           <TodosContainer>
             <h2>tasks</h2>
+            <TodoList todosType="To do" />
           </TodosContainer>
           {/* in progress */}
           <TodosContainer>
             <h2>in progress</h2>
+            <TodoList todosType="In Progress" />
           </TodosContainer>
           {/* completed */}
           <TodosContainer>
             <h2>completed</h2>
+            <TodoList todosType="Completed" />
           </TodosContainer>
         </div>
-        {/* <TodosContainer>
-          <TodosHeader />
-          <TodoList />
-        </TodosContainer> */}
       </AppContainer>
     </TodoProvider>
   );

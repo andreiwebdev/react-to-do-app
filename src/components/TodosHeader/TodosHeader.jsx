@@ -14,7 +14,12 @@ const TodosHeader = () => {
       hour12: false,
     });
 
-    addTodo({ id: Math.random() * 10, text: todoText, timePosted: timePosted });
+    addTodo({
+      id: Math.random() * 10,
+      text: todoText,
+      timePosted: timePosted,
+      status: "To do",
+    });
   };
 
   const submitHandler = (event) => {
