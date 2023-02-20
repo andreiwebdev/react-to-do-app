@@ -13,7 +13,7 @@ const TodoItem = (props) => {
   };
 
   const handleSave = ({ value }) => {
-    updateTodo(value, props.id, "text");
+    updateTodo(value, props.id, "text", props.status);
   };
 
   const dragStarted = (e, id) => {
