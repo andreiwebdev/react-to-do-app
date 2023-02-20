@@ -29,7 +29,7 @@ const TodoList = (props) => {
     // setTodosType("test");
   };
 
-  const todosItems = (
+  return (
     <>
       {props.todosType === "To do" && (
         <ul className={todosScroll}>
@@ -85,8 +85,6 @@ const TodoList = (props) => {
       )}
     </>
   );
-
-  return todosItems;
 };
 
 export default TodoList;
