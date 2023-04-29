@@ -12,7 +12,7 @@ const App = () => {
       <AppContainer>
         <TodosHeader />
         {/* tasks */}
-        <div className="flex flex-col lg:flex-row justify-center lg:justify-between w-full h-screen max-h-[85vh] p-5 lg:py-10 px-5">
+        <div className="grid lg:grid-cols-3 gap-4 w-full h-screen max-h-[85vh] p-5 lg:py-10 px-5">
           <TodosContainer>
             <h2>tasks</h2>
             <TodoList todosType="Todo" />
