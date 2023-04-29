@@ -1,37 +1,45 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import TodoItem from "../TodoItem/TodoItem";
 import useTodo from "../../hooks/useTodo";
 
-const TodoList = () => {
-  const { todos } = useTodo();
+const TodoList = (props) => {
+  const { todos, updateTodo } = useTodo();
   const [todosScroll, setTodosScroll] = useState(
-    "max-h-[fill] w-full h-full absolute pr-[45px]"
+    "max-h-[fill] w-full h-full absolute overflow-y-scroll pr-[30px]"
   );
 
-  useEffect(() => {
-    if (todos.length >= 11) {
-      setTodosScroll(
-        "max-h-[fill] w-full h-full absolute overflow-y-scroll pr-[30px]"
-      );
-    } else {
-      setTodosScroll("max-h-[fill] w-full h-full absolute pr-[45px]");
-    }
-  }, [todos]);
+  const draggingOver = (e) => {
+    e.preventDefault();
+  };
 
-  const todosItems = (
-    <ul className={todosScroll}>
-      {todos.map((todo) => (
-        <TodoItem
-          key={todo.id}
-          id={todo.id}
-          todo={todo.text}
-          time={todo.timePosted}
-        />
-      ))}
-    </ul>
+  const dragDropped = (e) => {
+    const todoId = e.dataTransfer.getData("todoId");
+    updateTodo(e.target.id, Number(todoId), "status");
+  };
+
+  return (
+    <>
+      <ul
+        id={props.todosType}
+        onDragOver={(e) => draggingOver(e)}
+        onDrop={(e) => dragDropped(e)}
+        className={todosScroll}
+      >
+        {todos &&
+          todos.map(
+            (todo) =>
+              todo.status === props.todosType && (
+                <TodoItem
+                  key={todo.id}
+                  id={todo.id}
+                  todo={todo.text}
+                  time={todo.timePosted}
+                />
+              )
+          )}
+      </ul>
+    </>
   );
-
-  return todosItems;
 };
 
 export default TodoList;

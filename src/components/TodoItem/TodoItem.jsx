@@ -13,11 +13,19 @@ const TodoItem = (props) => {
   };
 
   const handleSave = ({ value }) => {
-    updateTodo(value, props.id);
+    updateTodo(value, props.id, "text", props.status);
+  };
+
+  const dragStarted = (e, id) => {
+    e.dataTransfer.setData("todoId", id);
   };
 
   return (
-    <li className="flex justify-between items-center mb-4 text-sm todo-item">
+    <li
+      draggable
+      onDragStart={(e) => dragStarted(e, props.id)}
+      className="flex justify-between items-center mb-4 text-sm todo-item"
+    >
       <span className="bg-slate-800 rounded-lg text-white p-2 mr-3">
         {props.time}
       </span>

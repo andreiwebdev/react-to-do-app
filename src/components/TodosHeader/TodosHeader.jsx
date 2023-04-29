@@ -14,7 +14,12 @@ const TodosHeader = () => {
       hour12: false,
     });
 
-    addTodo({ id: Math.random() * 10, text: todoText, timePosted: timePosted });
+    addTodo({
+      id: Math.random() * 10,
+      text: todoText,
+      timePosted: timePosted,
+      status: "Todo",
+    });
   };
 
   const submitHandler = (event) => {
@@ -29,7 +34,7 @@ const TodosHeader = () => {
   };
 
   return (
-    <div className="text-4xl mb-14">
+    <div className="text-4xl mb-0 p-5 bg-slate-200 m-5 rounded-lg">
       <form
         onSubmit={submitHandler}
         className="flex items-center justify-center"
@@ -37,8 +42,8 @@ const TodosHeader = () => {
         <input
           className={
             error
-              ? "bg-slate-50 mr-4 text-sm w-[100%] focus:outline-none p-2 border-[1px] border-solid border-[red]"
-              : "bg-slate-50 mr-4 text-sm w-[100%] focus:outline-none p-2"
+              ? "bg-slate-50 mr-4 text-sm w-[100%] text-slate-800 focus:outline-none p-2 border-[1px] border-solid border-[red]"
+              : "bg-slate-50 mr-4 text-sm w-[100%] text-slate-800 focus:outline-none p-2"
           }
           type="text"
           onChange={(e) => setTodo(e.target.value)}
