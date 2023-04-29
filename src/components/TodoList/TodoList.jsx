@@ -1,22 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import TodoItem from "../TodoItem/TodoItem";
 import useTodo from "../../hooks/useTodo";
 
 const TodoList = (props) => {
   const { todos, updateTodo } = useTodo();
   const [todosScroll, setTodosScroll] = useState(
-    "max-h-[fill] w-full h-full absolute pr-[45px]"
+    "max-h-[fill] w-full h-full absolute overflow-y-scroll pr-[30px]"
   );
-
-  useEffect(() => {
-    if (todos.length >= 11) {
-      setTodosScroll(
-        "max-h-[fill] w-full h-full absolute overflow-y-scroll pr-[30px]"
-      );
-    } else {
-      setTodosScroll("max-h-[fill] w-full h-full absolute pr-[45px]");
-    }
-  }, [todos]);
 
   const draggingOver = (e) => {
     e.preventDefault();
