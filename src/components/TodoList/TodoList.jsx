@@ -4,7 +4,6 @@ import useTodo from "../../hooks/useTodo";
 
 const TodoList = (props) => {
   const { todos, updateTodo } = useTodo();
-  const [todosType, setTodosType] = useState(props.todosType);
   const [todosScroll, setTodosScroll] = useState(
     "max-h-[fill] w-full h-full absolute pr-[45px]"
   );
@@ -25,18 +24,22 @@ const TodoList = (props) => {
 
   const dragDropped = (e) => {
     const todoId = e.dataTransfer.getData("todoId");
-    updateTodo("In Progress", Number(todoId), "status");
-    // setTodosType("test");
+    updateTodo(e.target.id, Number(todoId), "status");
   };
 
   return (
     <>
-      {props.todosType === "To do" && (
-        <ul className={todosScroll}>
+      {props.todosType === "Todo" && (
+        <ul
+          id="Todo"
+          onDragOver={(e) => draggingOver(e)}
+          onDrop={(e) => dragDropped(e)}
+          className={todosScroll}
+        >
           {todos &&
             todos.map(
               (todo) =>
-                todo.status === "To do" && (
+                todo.status === "Todo" && (
                   <TodoItem
                     key={todo.id}
                     id={todo.id}
@@ -47,8 +50,9 @@ const TodoList = (props) => {
             )}
         </ul>
       )}
-      {props.todosType === "In Progress" && (
+      {props.todosType === "Inprog" && (
         <ul
+          id="Inprog"
           onDragOver={(e) => draggingOver(e)}
           onDrop={(e) => dragDropped(e)}
           className={todosScroll}
@@ -56,7 +60,7 @@ const TodoList = (props) => {
           {todos &&
             todos.map(
               (todo) =>
-                todo.status === "In Progress" && (
+                todo.status === "Inprog" && (
                   <TodoItem
                     key={todo.id}
                     id={todo.id}
@@ -68,7 +72,12 @@ const TodoList = (props) => {
         </ul>
       )}
       {props.todosType === "Completed" && (
-        <ul className={todosScroll}>
+        <ul
+          id="Completed"
+          onDragOver={(e) => draggingOver(e)}
+          onDrop={(e) => dragDropped(e)}
+          className={todosScroll}
+        >
           {todos &&
             todos.map(
               (todo) =>

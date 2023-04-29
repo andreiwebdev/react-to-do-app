@@ -15,7 +15,10 @@ const useTodo = () => {
 
   function updateTodo(update, id, key) {
     let index = state.todos.map((todo) => todo.id).indexOf(id);
-    state.todos[index][key] = update;
+    let updatedTodos = [...state.todos];
+    updatedTodos[index][key] = update;
+
+    setState((state) => ({ todos: updatedTodos }));
   }
 
   return {

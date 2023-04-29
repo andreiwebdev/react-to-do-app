@@ -18,7 +18,7 @@ const TodosHeader = () => {
       id: Math.random() * 10,
       text: todoText,
       timePosted: timePosted,
-      status: "To do",
+      status: "Todo",
     });
   };
 
