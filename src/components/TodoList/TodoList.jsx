@@ -29,69 +29,25 @@ const TodoList = (props) => {
 
   return (
     <>
-      {props.todosType === "Todo" && (
-        <ul
-          id="Todo"
-          onDragOver={(e) => draggingOver(e)}
-          onDrop={(e) => dragDropped(e)}
-          className={todosScroll}
-        >
-          {todos &&
-            todos.map(
-              (todo) =>
-                todo.status === "Todo" && (
-                  <TodoItem
-                    key={todo.id}
-                    id={todo.id}
-                    todo={todo.text}
-                    time={todo.timePosted}
-                  />
-                )
-            )}
-        </ul>
-      )}
-      {props.todosType === "Inprog" && (
-        <ul
-          id="Inprog"
-          onDragOver={(e) => draggingOver(e)}
-          onDrop={(e) => dragDropped(e)}
-          className={todosScroll}
-        >
-          {todos &&
-            todos.map(
-              (todo) =>
-                todo.status === "Inprog" && (
-                  <TodoItem
-                    key={todo.id}
-                    id={todo.id}
-                    todo={todo.text}
-                    time={todo.timePosted}
-                  />
-                )
-            )}
-        </ul>
-      )}
-      {props.todosType === "Completed" && (
-        <ul
-          id="Completed"
-          onDragOver={(e) => draggingOver(e)}
-          onDrop={(e) => dragDropped(e)}
-          className={todosScroll}
-        >
-          {todos &&
-            todos.map(
-              (todo) =>
-                todo.status === "Completed" && (
-                  <TodoItem
-                    key={todo.id}
-                    id={todo.id}
-                    todo={todo.text}
-                    time={todo.timePosted}
-                  />
-                )
-            )}
-        </ul>
-      )}
+      <ul
+        id={props.todosType}
+        onDragOver={(e) => draggingOver(e)}
+        onDrop={(e) => dragDropped(e)}
+        className={todosScroll}
+      >
+        {todos &&
+          todos.map(
+            (todo) =>
+              todo.status === props.todosType && (
+                <TodoItem
+                  key={todo.id}
+                  id={todo.id}
+                  todo={todo.text}
+                  time={todo.timePosted}
+                />
+              )
+          )}
+      </ul>
     </>
   );
 };
