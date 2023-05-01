@@ -5,7 +5,7 @@ import useTodo from "../../hooks/useTodo";
 const TodoList = (props) => {
   const { todos, updateTodo } = useTodo();
   const [todosScroll, setTodosScroll] = useState(
-    "max-h-[fill] w-full h-full absolute overflow-y-scroll pr-[30px]"
+    "max-h-[fill] w-full h-full absolute overflow-y-scroll pr-[20px]"
   );
 
   const draggingOver = (e) => {

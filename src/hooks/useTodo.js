@@ -21,11 +21,20 @@ const useTodo = () => {
     setState((state) => ({ todos: updatedTodos }));
   }
 
+  function completeTodo(id) {
+    let index = state.todos.map((todo) => todo.id).indexOf(id);
+    let updatedTodos = [...state.todos];
+    updatedTodos[index]["status"] = "Completed";
+
+    setState((state) => ({ todos: updatedTodos }));
+  }
+
   return {
     todos: state.todos,
     addTodo,
     removeTodo,
     updateTodo,
+    completeTodo,
   };
 };
 

@@ -10,7 +10,7 @@
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #1E293B;
+  background-color: #1e293b;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -19,24 +19,23 @@
   -webkit-text-size-adjust: 100%;
 }
 
-
 ::-webkit-scrollbar {
   width: 6px;
   height: 6px;
 }
 ::-webkit-scrollbar-track {
   border-radius: 10px;
-  background: rgba(0,0,0,0.1);
+  background: rgba(0, 0, 0, 0.1);
 }
-::-webkit-scrollbar-thumb{
+::-webkit-scrollbar-thumb {
   border-radius: 10px;
-  background: rgba(0,0,0,0.2);
+  background: rgba(0, 0, 0, 0.2);
 }
-::-webkit-scrollbar-thumb:hover{
-  background: rgba(0,0,0,0.4);
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.4);
 }
-::-webkit-scrollbar-thumb:active{
-  background: rgba(0,0,0,.9);
+::-webkit-scrollbar-thumb:active {
+  background: rgba(0, 0, 0, 0.9);
 }
 
 /* ------- react-edit-text ------- */
@@ -46,7 +45,7 @@
 }
 
 .todo-item .edit-todo-button {
-  width: 20px;
+  width: 19px;
   margin-right: 10px;
   position: relative;
   top: 1px;
