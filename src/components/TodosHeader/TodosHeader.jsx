@@ -1,11 +1,12 @@
 import React, { useState } from "react";
-import useTodo from "../../hooks/useTodo";
 import Button from "../Button/Button";
+import { useDispatch } from "react-redux";
+import { todoActions } from "../../store/slices/todos.slice";
 
 const TodosHeader = () => {
+  const dispatch = useDispatch();
   const [todo, setTodo] = useState("");
   const [error, setError] = useState("");
-  const { addTodo } = useTodo(null);
 
   const addTodoHandler = (todoText) => {
     let timePosted = new Date().toLocaleTimeString("en-US", {
@@ -14,12 +15,14 @@ const TodosHeader = () => {
       hour12: false,
     });
 
-    addTodo({
-      id: Math.random() * 10,
-      text: todoText,
-      timePosted: timePosted,
-      status: "Todo",
-    });
+    dispatch(
+      todoActions.addTodo({
+        id: Math.random() * 10,
+        text: todoText,
+        timePosted: timePosted,
+        status: "Todo",
+      })
+    );
   };
 
   const submitHandler = (event) => {

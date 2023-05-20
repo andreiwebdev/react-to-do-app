@@ -1,10 +1,13 @@
 import React, { useState } from "react";
 import TodoItem from "../TodoItem/TodoItem";
-import useTodo from "../../hooks/useTodo";
+import { useDispatch, useSelector } from "react-redux";
+import { todoActions } from "../../store/slices/todos.slice";
 
 const TodoList = (props) => {
-  const { todos, updateTodo } = useTodo();
-  const [todosScroll, setTodosScroll] = useState(
+  const dispatch = useDispatch();
+  const todos = useSelector((state) => state.todos.todos);
+
+  const [todosScroll] = useState(
     "max-h-[fill] w-full h-full absolute overflow-y-scroll pr-[20px]"
   );
 
@@ -13,8 +16,18 @@ const TodoList = (props) => {
   };
 
   const dragDropped = (e) => {
+    const todoStatus = e.dataTransfer.getData("");
     const todoId = e.dataTransfer.getData("todoId");
-    updateTodo(e.target.id, Number(todoId), "status");
+
+    if (e.target.id !== "" || todoStatus !== "") {
+      dispatch(
+        todoActions.updateTodo({
+          update: e.target.id == "" ? todoStatus : e.target.id,
+          id: Number(todoId),
+          key: "status",
+        })
+      );
+    }
   };
 
   return (
@@ -34,6 +47,7 @@ const TodoList = (props) => {
                   id={todo.id}
                   todo={todo.text}
                   time={todo.timePosted}
+                  status={todo.status}
                 />
               )
           )}
